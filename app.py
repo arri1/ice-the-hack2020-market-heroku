@@ -47,7 +47,7 @@ data = api.model('Data', {
 })
 
 
-@api.route('/api/get-data')
+@api.route('/get-data')
 class MyResource(Resource):
     @api.marshal_with(data)
     def get(self):
