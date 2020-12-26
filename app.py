@@ -2,12 +2,14 @@ from flask import Flask, Blueprint
 from flask_restx import Api, Resource, fields
 from flask_restx import fields
 import pymongo as pymongo
+from flask_cors import CORS
 
 client = pymongo.MongoClient(
     "mongodb+srv://kekas:kekmasterpassword@cluster0.jhqzb.mongodb.net/marketplace?retryWrites=true&w=majority")
 db = client['marketplace']
 
 app = Flask(__name__)
+CORS(app)
 app.config.SWAGGER_UI_DOC_EXPANSION = 'list'
 blueprint = Blueprint('api', __name__, url_prefix='/api')
 api = Api(blueprint)
